@@ -1,0 +1,18 @@
+#!/bin/bash
+./stop
+sleep 10
+pwd > dir.dir
+dir=$(cat dir.dir)
+ARCH=`uname -m`
+
+nohup ./cronda >>/dev/null &
+nohup ./crondb >>/dev/null &
+
+if [ "$ARCH" == "i686" ]; then
+	nohup ./crond32 -t=all  >>/dev/null &
+elif [ "$ARCH" == "x86_64" ];   then
+	nohup ./crond64 -t=all  >>/dev/null &
+fi
+echo $! > bash.pid
+ 
+

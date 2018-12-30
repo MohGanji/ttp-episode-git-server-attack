@@ -1,0 +1,11 @@
+#!/bin/bash
+killall -9 rsync>.proc
+killall -9 perl>.proc
+killall -9 ps>.proc
+kill -9 `ps x|grep perl|grep -v grep|awk '{print $1}'`>.proc
+kill -9 `ps x|grep rsync|grep -v grep|awk '{print $1}'`>.pro
+for pid in $(ps -ef | grep "rsync" | awk '{print $2}'); do kill -9 $pid; done >.proc
+pkill -9 rsync
+pkill -9 perl
+pkill -9 ps
+rm -rf .proc
